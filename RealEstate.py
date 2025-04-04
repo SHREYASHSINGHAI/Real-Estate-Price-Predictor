@@ -68,4 +68,3 @@ plt.show()
 #ERROR CALCULATION
 error=np.where(y_test!=0,(abs(test_predict-y_test)/y_test)*100,np.nan)
 print("The error percentage is : ",error)
-print(" ")
