@@ -20,9 +20,9 @@ def load_and_train():
     # Load dataset (Make sure the path is correct or file is in same directory)
     # Using your path or fallback to local file if deployed
     try:
-        df = pd.read_csv(r"D:\college\Real_Estate_Price_Predictor\Real-Estate-Price-Predictor\Real estate.csv")
+        df = pd.read_csv(r"D:\college\Real_Estate_Price_Predictor\Real-Estate-Price-Predictor\RealEstate.csv")
     except FileNotFoundError:
-        df = pd.read_csv("Real estate.csv") # Fallback if you keep it in the same folder
+        df = pd.read_csv("RealEstate.csv") # Fallback if you keep it in the same folder
         
     df.drop(columns=["X5 latitude","X6 longitude","X1 transaction date"], inplace=True, errors='ignore')
     df.rename(columns={"X2 house age":"age","X3 distance to the nearest MRT station":"distance_nearest_mrt_station",
@@ -69,7 +69,7 @@ with col1:
         prediction = lm.predict(scaled_input)[0]
         
         # Displaying result beautifully
-        st.success(f"### Predicted Price: **{prediction:.2f}** per unit area")
+        st.success(f"### Predicted Price: $**{prediction:.2f}** per unit area/ ₹{95*prediction:.2f}")
 
 with col2:
     st.header("📊 Model Performance & Insights")
